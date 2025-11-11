@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevSorteio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- OPÇÃO A: se for GIF, use só src -->
+  <img
+    src="./assets/Sorteio.gif"
+    alt="Animação de sorteio"
+    class="banner-img"
+  />
+
+  <h1>DevSorteio</h1>
+
+  <h2 class="SortearNumero">Sortear um Número</h2>
+
+  <div class="input-row">
+    <input id="min" class="input-min" type="number" inputmode="numeric" placeholder="entre" />
+    <input id="max" class="input-max" type="number" inputmode="numeric" placeholder="e" />
+  </div>
+
+  <button id="btnSortear" type="button">Sortear</button>
+
+  <h2 id="resultado" class="resultado" aria-live="polite">—</h2>
+
+  <script src="script.js"></script>
+</body>
+</html>

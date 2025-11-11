@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* -------- RESET & BASE -------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+html { font-size: 16px; }
+body {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+
+  /* Centraliza tudo em coluna */
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+/* -------- BANNER -------- */
+.banner-img {
+  width: min(600px, 92vw);
+  margin-top: .5rem;
+}
+
+/* -------- TÍTULOS -------- */
+h1{
+  font-weight: 700;
+  /* 180px estourava no mobile; clamp deixa fluido */
+  font-size: clamp(2rem, 6vw + 1rem, 6rem);
+  line-height: 1.1;
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.SortearNumero {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 1.2vw + 1rem, 2rem);
+  text-align: center;
+  margin-top: .25rem;
+  margin-bottom: .5rem;
+}
+
+/* -------- LINHA DOS INPUTS -------- */
+.input-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: .5rem;
+  flex-wrap: wrap; /* previne overflow em telas intermediárias */
+  justify-content: center;
+}
+
+input{
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  height: 64px;
+  width: min(342px, 92vw);          /* evita estourar no mobile */
+  padding: 0 18px;
+  font-weight: 500;
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  color: #ffffff;
+}
+
+/* -------- BOTÃO -------- */
+button{
+  margin-top: .75rem;
+  background: #FF0000;
+  box-shadow: 0px 18px 40px rgba(255, 0, 0, 0.35);
+  border-radius: 10px;
+  border: none;
+  width: min(342px, 92vw);
+  height: 64px;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform .06s ease, opacity .2s ease;
+}
+button:hover{ opacity: 0.9; transform: translateY(-1px); }
+button:active{ opacity: 0.8; transform: translateY(0); }
+
+/* -------- RESULTADO -------- */
+.resultado {
+  color: #fff;
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+  text-shadow: 0 0 15px #ff2b2b;
+}
+
+.resultado.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Brilho pulsante */
+@keyframes brilho {
+  0% { text-shadow: 0 0 10px #ff0000; }
+  50% { text-shadow: 0 0 25px #ff3333; }
+  100% { text-shadow: 0 0 10px #ff0000; }
+}
+.resultado.sorteado {
+  animation: brilho 1s infinite alternate;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* -------- RESPONSIVO EXTRA -------- */
+@media (max-width: 600px){
+  .input-row { flex-direction: column; align-items: center; }
+}
